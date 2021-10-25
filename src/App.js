@@ -11,13 +11,16 @@ export default function App() {
 
   const onClickOpen = () => setOpen(!open);
 
+  // アロー関数は毎回新しい関数を生成しているとみなされるのでChilcAreaのpropsが変わったと判断される
+  const onClickClose = () => setOpen(false);
+
   return (
     <div className="App">
       <input value={text} onChange={onChangeText} />
       <br />
       <br />
       <button onClick={onClickOpen}>表示</button>
-      <ChildArea open={open} />
+      <ChildArea open={open} onClickClose={onClickClose} />
     </div>
   );
 }
